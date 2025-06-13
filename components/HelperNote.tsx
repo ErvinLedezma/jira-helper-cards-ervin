@@ -1,14 +1,9 @@
+import { HelperNoteProps } from "@/types/helperNote.types";
+import {
+  formatedDateToYYYYMMDD,
+  viewLastUpdated,
+} from "@/utils/uploadDate.utils";
 import Image from "next/image";
-
-type HelperNoteProps = {
-  indexCard?: number;
-  code: string;
-  title: string;
-  description: string;
-  uploadDate: Date;
-  updatedDate: Date;
-  state: "active" | "future" | "completed";
-};
 
 export default function HelperNote({
   indexCard,
@@ -19,22 +14,6 @@ export default function HelperNote({
   updatedDate,
   state,
 }: HelperNoteProps) {
-  const viewLastUpdated = (date: Date): string => {
-    return `Last updated ${date.toLocaleString("en-US", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    })}`;
-  };
-
-  const formatedDateToYYYYMMDD = (date: Date) => {
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    });
-  };
-
   return (
     <div className="w-full max-w-80 overflow-hidden rounded-xl">
       <div
